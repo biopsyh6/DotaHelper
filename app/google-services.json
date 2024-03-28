@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "916159260555",
+    "project_id": "dotahelperproject",
+    "storage_bucket": "dotahelperproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916159260555:android:05ff25d26100fb3603718e",
+        "android_client_info": {
+          "package_name": "com.example.dotahelperproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk5dkoy_x7dRk18-ozzulMUveXDMfDf0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
