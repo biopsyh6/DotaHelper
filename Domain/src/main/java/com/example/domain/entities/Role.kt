@@ -10,7 +10,8 @@ data class Role(
     @PrimaryKey(autoGenerate = true)
     var  roleId: Int? = null,
     @ColumnInfo(name = "name")
-    var name: String,
+    var name: String = "",
     @ColumnInfo(name = "image")
-    var image: Int
+    var image: Int = 0,
+    var firebaseId: String = ""
 )

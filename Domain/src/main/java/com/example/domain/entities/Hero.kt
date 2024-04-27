@@ -15,28 +15,31 @@ import androidx.room.PrimaryKey
 data class Hero (
     @PrimaryKey(autoGenerate = true)
     var heroId: Int? = null,
-    var attributeId: Int,
-    var roleId: Int,
+    var attributeId: Int? = null,
+    var roleId: Int? = null,
     @ColumnInfo(name = "name")
-    var name: String,
+    var name: String = "",
     @ColumnInfo(name = "health")
-    var health: Double,
+    var health: Double = 0.0,
     @ColumnInfo(name = "mana")
-    var mana: Double,
+    var mana: Double = 0.0,
     @ColumnInfo(name = "strength")
-    var strength: Double,
+    var strength: Double = 0.0,
     @ColumnInfo(name = "agility")
-    var dexterity: Double,
+    var agility: Double = 0.0,
     @ColumnInfo(name = "intelligence")
-    var intelligence: Double,
+    var intelligence: Double = 0.0,
     @ColumnInfo(name = "damage")
-    var damage: Int,
+    var damage: Int = 0,
     @ColumnInfo(name = "armor")
-    var armor: Double,
+    var armor: Double = 0.0,
     @ColumnInfo(name = "speed")
-    var speed: Int,
+    var speed: Int = 0,
     @ColumnInfo(name = "attackRange")
-    var attackRange: Int,
+    var attackRange: Int = 0,
     @ColumnInfo(name = "attackSpeed")
-    var attackSpeed: Int
+    var attackSpeed: Int = 0,
+    @ColumnInfo(name = "image")
+    var image: Int = 0,
+    var firebaseId: String = ""
 )

@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import com.example.domain.entities.Rune
 
 interface RuneRepository {
-    fun saveRune(rune: com.example.domain.entities.Rune)
-    fun saveRunes(runes: List<com.example.domain.entities.Rune>)
-    fun getAllRunes(): LiveData<List<com.example.domain.entities.Rune>>
+    fun saveRune(rune: Rune)
+    fun saveRunes(runes: List<Rune>)
+    fun getAllRunes(): LiveData<List<Rune>>
     fun clearAllRunes()
-    fun getRuneById(id: Int): LiveData<com.example.domain.entities.Rune>
-    suspend fun create(rune: com.example.domain.entities.Rune, onSuccess: () -> Unit)
+    fun getRuneById(id: Int): LiveData<Rune>
+    suspend fun create(rune: Rune, onSuccess: () -> Unit)
 }

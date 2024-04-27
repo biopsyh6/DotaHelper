@@ -4,10 +4,11 @@ import androidx.lifecycle.LiveData
 import com.example.domain.entities.Hero
 
 interface HeroRepository {
-    fun saveHero(hero: com.example.domain.entities.Hero)
-    fun getAllHeroes(): LiveData<List<com.example.domain.entities.Hero>>
+    fun saveHero(hero: Hero)
+    fun getAllHeroes(): LiveData<List<Hero>>
     fun clearAllHeroes()
-    fun getHeroById(id: Int) : LiveData<com.example.domain.entities.Hero>
-    fun getHeroesByAttributeId(attributeId: Int) : LiveData<List<com.example.domain.entities.Hero>>
-    fun getHeroesByRoleId(roleId: Int) : LiveData<List<com.example.domain.entities.Hero>>
+    fun getHeroById(id: Int) : LiveData<Hero>
+    fun getHeroesByAttributeId(attributeId: Int) : LiveData<List<Hero>>
+    fun getHeroesByRoleId(roleId: Int) : LiveData<List<Hero>>
+    suspend fun create(hero: Hero, onSuccess: () -> Unit)
 }

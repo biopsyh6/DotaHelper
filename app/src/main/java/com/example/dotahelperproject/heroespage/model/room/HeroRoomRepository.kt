@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.dotahelperproject.MainActivity
 import com.example.domain.abstractions.hero.HeroRepository
+import com.example.domain.entities.Hero
 
 class HeroRoomRepository : HeroRepository {
     private val heroDao: HeroDao = MainActivity.database.heroDao()
@@ -29,6 +30,9 @@ class HeroRoomRepository : HeroRepository {
     override fun getHeroById(id: Int) = heroDao.getHeroById(id)
     override fun getHeroesByAttributeId(attributeId: Int) = heroDao.getHeroesByAttributeId(attributeId)
     override fun getHeroesByRoleId(roleId: Int) = heroDao.getHeroesByRoleId(roleId)
+    override suspend fun create(hero: Hero, onSuccess: () -> Unit) {
+        TODO("Not yet implemented")
+    }
 
     private class InsertAsyncTask internal constructor(private val dao: HeroDao) :
         AsyncTask<com.example.domain.entities.Hero, Void, Void>() {
