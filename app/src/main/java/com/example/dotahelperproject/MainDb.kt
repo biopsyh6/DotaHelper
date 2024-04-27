@@ -4,26 +4,31 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 import androidx.room.Database
-import com.example.dotahelperproject.entities.Attribute
-import com.example.dotahelperproject.entities.Farm
-import com.example.dotahelperproject.entities.Hero
-import com.example.dotahelperproject.entities.Item
-import com.example.dotahelperproject.entities.ItemCategory
-import com.example.dotahelperproject.entities.Neutral
-import com.example.dotahelperproject.entities.Role
-import com.example.dotahelperproject.entities.RoleManual
-import com.example.dotahelperproject.entities.Rune
-import com.example.dotahelperproject.entities.Skill
-import com.example.dotahelperproject.entities.Ward
+import com.example.dotahelperproject.attribute.model.room.AttributeDao
+import com.example.domain.entities.Attribute
+import com.example.domain.entities.Farm
+import com.example.domain.entities.Hero
+import com.example.domain.entities.Item
+import com.example.domain.entities.ItemCategory
+import com.example.domain.entities.Neutral
+import com.example.domain.entities.Role
+import com.example.domain.entities.RoleManual
+import com.example.domain.entities.Rune
+import com.example.domain.entities.Skill
+import com.example.domain.entities.User
+import com.example.domain.entities.Ward
 import com.example.dotahelperproject.heroespage.model.room.HeroDao
 import com.example.dotahelperproject.itemspage.model.room.ItemDao
 import com.example.dotahelperproject.neutralspage.model.room.NeutralDao
+import com.example.dotahelperproject.role.model.room.RoleDao
 import com.example.dotahelperproject.rolemanualpage.model.room.RolemanualDao
 import com.example.dotahelperproject.runespage.model.room.RuneDao
 import com.example.dotahelperproject.skillspage.model.room.SkillDao
+import com.example.dotahelperproject.user.model.room.UserDao
 
-@Database (entities = [Hero::class, Attribute::class, Farm::class, Item::class, ItemCategory::class,
-Neutral::class, Role::class, RoleManual::class, Rune::class, Skill::class, Ward::class], version = 2)
+@Database (entities = [com.example.domain.entities.Hero::class, com.example.domain.entities.Attribute::class, com.example.domain.entities.Farm::class, com.example.domain.entities.Item::class, com.example.domain.entities.ItemCategory::class,
+com.example.domain.entities.Neutral::class, com.example.domain.entities.Role::class, com.example.domain.entities.RoleManual::class, com.example.domain.entities.Rune::class, com.example.domain.entities.Skill::class, com.example.domain.entities.Ward::class, com.example.domain.entities.User::class],
+    version = 2)
 abstract class MainDb : RoomDatabase() {
     abstract fun getDao(): Dao
     abstract fun heroDao(): HeroDao
@@ -32,6 +37,9 @@ abstract class MainDb : RoomDatabase() {
     abstract fun rolemanualDao(): RolemanualDao
     abstract fun runeDao(): RuneDao
     abstract fun skillDao(): SkillDao
+    abstract fun roleDao(): RoleDao
+    abstract fun attributeDao(): AttributeDao
+    abstract fun userDao(): UserDao
 
     companion object{
         fun getDb(context: Context): MainDb{

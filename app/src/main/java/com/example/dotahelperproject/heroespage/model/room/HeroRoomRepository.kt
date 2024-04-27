@@ -3,21 +3,17 @@ package com.example.dotahelperproject.heroespage.model.room
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.dotahelperproject.MainActivity
-import com.example.dotahelperproject.MainDb
-import com.example.dotahelperproject.entities.Hero
-import com.example.dotahelperproject.heroespage.model.HeroRepository
-import com.example.dotahelperproject.heroespage.presenter.HeroespagePresenter
-import org.jetbrains.annotations.Async
+import com.example.domain.abstractions.hero.HeroRepository
 
 class HeroRoomRepository : HeroRepository {
     private val heroDao: HeroDao = MainActivity.database.heroDao()
-    private val allHeroes: LiveData<List<Hero>>
+    private val allHeroes: LiveData<List<com.example.domain.entities.Hero>>
 
     init {
         allHeroes = heroDao.getAllHeroes()
     }
 
-    override fun saveHero(hero: Hero) {
+    override fun saveHero(hero: com.example.domain.entities.Hero) {
         InsertAsyncTask(heroDao).execute(hero)
     }
 
@@ -35,15 +31,15 @@ class HeroRoomRepository : HeroRepository {
     override fun getHeroesByRoleId(roleId: Int) = heroDao.getHeroesByRoleId(roleId)
 
     private class InsertAsyncTask internal constructor(private val dao: HeroDao) :
-        AsyncTask<Hero, Void, Void>() {
-        override fun doInBackground(vararg params: Hero): Void?{
+        AsyncTask<com.example.domain.entities.Hero, Void, Void>() {
+        override fun doInBackground(vararg params: com.example.domain.entities.Hero): Void?{
             dao.insert(params[0])
             return null
         }
     }
     private class DeleteAsyncTask internal constructor(private val dao: HeroDao) :
-        AsyncTask<Hero, Void, Void>(){
-            override fun doInBackground(vararg params: Hero): Void?{
+        AsyncTask<com.example.domain.entities.Hero, Void, Void>(){
+            override fun doInBackground(vararg params: com.example.domain.entities.Hero): Void?{
                 dao.clearHeroes(*params)
                 return null
             }

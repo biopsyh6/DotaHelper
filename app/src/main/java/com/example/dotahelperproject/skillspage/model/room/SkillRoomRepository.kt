@@ -3,34 +3,31 @@ package com.example.dotahelperproject.skillspage.model.room
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.dotahelperproject.MainActivity
-import com.example.dotahelperproject.entities.Neutral
-import com.example.dotahelperproject.entities.Skill
-import com.example.dotahelperproject.neutralspage.model.room.NeutralDao
-import com.example.dotahelperproject.skillspage.model.SkillRepository
+import com.example.domain.abstractions.skill.SkillRepository
 
 class SkillRoomRepository: SkillRepository {
     private val skillDao: SkillDao = MainActivity.database.skillDao()
-    private val allSkills: LiveData<List<Skill>>
+    private val allSkills: LiveData<List<com.example.domain.entities.Skill>>
 
     init {
         allSkills = skillDao.getAllSkills()
     }
     private class InsertAsyncTask internal constructor(private val dao: SkillDao):
-        AsyncTask<Skill, Void, Void>() {
-        override fun doInBackground(vararg params: Skill): Void? {
+        AsyncTask<com.example.domain.entities.Skill, Void, Void>() {
+        override fun doInBackground(vararg params: com.example.domain.entities.Skill): Void? {
             dao.insert(params[0])
             return null
         }
     }
     private class DeleteAsyncTask internal constructor(private val dao: SkillDao):
-        AsyncTask<Skill, Void, Void>() {
-        override fun doInBackground(vararg params: Skill): Void?{
+        AsyncTask<com.example.domain.entities.Skill, Void, Void>() {
+        override fun doInBackground(vararg params: com.example.domain.entities.Skill): Void?{
             dao.clearSkills(*params)
             return null
         }
     }
 
-    override fun saveSkill(skill: Skill) {
+    override fun saveSkill(skill: com.example.domain.entities.Skill) {
         InsertAsyncTask(skillDao).execute(skill)
     }
 

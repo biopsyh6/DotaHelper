@@ -6,22 +6,22 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.dotahelperproject.entities.Item
+import com.example.domain.entities.Item
 
 @Dao
 interface ItemDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(item: Item)
+    fun insert(item: com.example.domain.entities.Item)
 
     @Delete
-    fun clearItems(vararg item: Item)
+    fun clearItems(vararg item: com.example.domain.entities.Item)
 
     @Query("SELECT * FROM items ORDER BY name ASC")
-    fun getAllItems(): LiveData<List<Item>>
+    fun getAllItems(): LiveData<List<com.example.domain.entities.Item>>
 
     @Query("SELECT * FROM items WHERE itemId =:id")
-    fun getItemById(id: Int): LiveData<Item>
+    fun getItemById(id: Int): LiveData<com.example.domain.entities.Item>
 
     @Query("SELECT * FROM items WHERE categoryId =:categoryId")
-    fun getItemsByCategoryId(categoryId: Int): LiveData<List<Item>>
+    fun getItemsByCategoryId(categoryId: Int): LiveData<List<com.example.domain.entities.Item>>
 }

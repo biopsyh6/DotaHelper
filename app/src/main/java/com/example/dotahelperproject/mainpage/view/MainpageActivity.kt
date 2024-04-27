@@ -2,23 +2,19 @@ package com.example.dotahelperproject.mainpage.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import com.example.dotahelperproject.R
 import com.example.dotahelperproject.databinding.ActivityMainpageBinding
-import com.example.dotahelperproject.entities.Rune
 import com.example.dotahelperproject.heroespage.view.HeroespageActivity
 import com.example.dotahelperproject.mainpage.presenter.IMainpagePresenter
 import com.example.dotahelperproject.runespage.model.room.RuneRoomRepository
 
 class MainpageActivity : AppCompatActivity(), IMainpageView {
 
-//    val runeRepository = RuneRoomRepository()
+    val runeRepository = RuneRoomRepository()
 
     private lateinit var binding: ActivityMainpageBinding
     private lateinit var iMainpagePresenter: IMainpagePresenter
@@ -43,13 +39,29 @@ class MainpageActivity : AppCompatActivity(), IMainpageView {
         binding.heroesImageButton.setOnClickListener {
             val intent = Intent(this@MainpageActivity, HeroespageActivity::class.java)
             startActivity(intent)
-//            val id = 181
+
+
+//            val id = 379
 //            val rune: LiveData<Rune> = runeRepository.getRuneById(id)
+//            val runes: LiveData<List<Rune>> = runeRepository.getAllRunes()
+
+
+
 //            rune.observe(this, Observer { rune ->
 //                // Обработка полученной руны
 //
 //                Toast.makeText(this, rune.name, Toast.LENGTH_LONG).show()
+//                Thread.sleep(2000)
+//
 //            })
+//            val allRunes: LiveData<List<Rune>> = runeRepository.getAllRunes()
+//            allRunes.observe(this, Observer { runes ->
+//                runes.forEach { rune ->
+//                    Toast.makeText(this, rune.name, Toast.LENGTH_SHORT).show()
+//                    Thread.sleep(2000)
+//                }
+//            })
+
         }
     }
 }

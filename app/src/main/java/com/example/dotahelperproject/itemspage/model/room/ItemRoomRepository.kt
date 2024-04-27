@@ -3,18 +3,17 @@ package com.example.dotahelperproject.itemspage.model.room
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.dotahelperproject.MainActivity
-import com.example.dotahelperproject.entities.Item
-import com.example.dotahelperproject.itemspage.model.ItemRepository
+import com.example.domain.abstractions.item.ItemRepository
 
 class ItemRoomRepository : ItemRepository {
     private val itemDao: ItemDao = MainActivity.database.itemDao()
-    private val allItems: LiveData<List<Item>>
+    private val allItems: LiveData<List<com.example.domain.entities.Item>>
 
     init {
         allItems = itemDao.getAllItems()
     }
 
-    override fun saveItem(item: Item) {
+    override fun saveItem(item: com.example.domain.entities.Item) {
         InsertAsyncTask(itemDao).execute(item)
     }
 
@@ -32,15 +31,15 @@ class ItemRoomRepository : ItemRepository {
     override fun getItemByCategoryId(categoryId: Int) = itemDao.getItemsByCategoryId(categoryId)
 
     private class InsertAsyncTask internal constructor(private val dao: ItemDao):
-        AsyncTask<Item, Void, Void>() {
-        override fun doInBackground(vararg params: Item): Void? {
+        AsyncTask<com.example.domain.entities.Item, Void, Void>() {
+        override fun doInBackground(vararg params: com.example.domain.entities.Item): Void? {
             dao.insert(params[0])
             return null
         }
     }
     private class DeleteAsyncTask internal constructor(private val dao: ItemDao):
-            AsyncTask<Item, Void, Void>() {
-        override fun doInBackground(vararg params: Item): Void?{
+            AsyncTask<com.example.domain.entities.Item, Void, Void>() {
+        override fun doInBackground(vararg params: com.example.domain.entities.Item): Void?{
             dao.clearItems(*params)
             return null
         }

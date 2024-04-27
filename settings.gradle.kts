@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "DotaHelperProject"
 include(":app")
-include(":dota_lib")
+include(":Domain")
+include(":Application")
+include(":di")
+include(":SerializerLib")
