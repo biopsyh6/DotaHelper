@@ -29,7 +29,7 @@ class HeroRoomRepository : HeroRepository {
 
     override fun getHeroById(id: Int) = heroDao.getHeroById(id)
     override fun getHeroesByAttributeId(attributeId: Int) = heroDao.getHeroesByAttributeId(attributeId)
-    override fun getHeroesByRoleId(roleId: Int) = heroDao.getHeroesByRoleId(roleId)
+//    override fun getHeroesByRoleId(roleId: Int) = heroDao.getHeroesByRoleId(roleId)
     override suspend fun create(hero: Hero, onSuccess: () -> Unit) {
         TODO("Not yet implemented")
     }

@@ -3,13 +3,22 @@ package com.example.dotahelperproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import com.example.dotahelperproject.databinding.ActivityMainBinding
 import com.example.domain.entities.Rune
 import com.example.dotahelperproject.login.view.LoginActivity
 import com.example.dotahelperproject.mainpage.view.MainpageActivity
-import com.example.dotahelperproject.runespage.model.firebase.AppFirebaseRuneRepository
+import com.example.application.RuneUseCases.firebase.AppFirebaseRuneRepository
+import com.example.servicesapi.HeroDataFetcher
+import com.example.servicesapi.HeroService
 import com.google.firebase.auth.FirebaseAuth
+import com.example.servicesapi.MyApiService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -26,6 +35,46 @@ class MainActivity : AppCompatActivity() {
         database = MainDb.getDb(this)
 
         val db = MainDb.getDb(this)
+//////////////////////////////////////////////////////////
+
+        var heroService = HeroService()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://www.dota2.com/")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .build()
+        val apiService = retrofit.create(MyApiService::class.java)
+
+        val fetcher = HeroDataFetcher(heroService, apiService)
+        fetcher.fetchHeroData(102)
+
+//        val service = retrofit.create(MyApiService::class.java)
+//        val call = service.fetchHeroData("english", 102)
+//        call.enqueue(object : Callback<String> {
+//            override fun onResponse(call: Call<String>, response: Response<String>) {
+//                if(response.isSuccessful){
+//                    val json = response.body()
+//                    if (json != null) {
+//                        heroService.parseHeroData(json)
+//                    }
+//                }
+//                else {
+//                    Log.d("Error", "${response.code()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<String>, t: Throwable) {
+//                Log.d("Error", "${t.message}")
+//            }
+//        })
+
+
+/////////////////////////////////////////////////////////////////
+
+
+
+
+
+
         if(FirebaseAuth.getInstance().currentUser ==null){
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -49,9 +98,9 @@ class MainActivity : AppCompatActivity() {
             null, "Water Rune",
             "Мгновенно восстанавливает 40 здоровья и 80 маны.", R.drawable.rune_of_water_model
         )
-        val runeRepository = AppFirebaseRuneRepository()
-        runeRepository.saveRune(bounty_rune)
-        runeRepository.saveRune(water_rune)
+//        val runeRepository = AppFirebaseRuneRepository()
+//        runeRepository.saveRune(bounty_rune)
+//        runeRepository.saveRune(water_rune)
 
 
 //        val database = FirebaseDatabase.getInstance("https://dotahelperproject-default-rtdb.europe-west1.firebasedatabase.app/")

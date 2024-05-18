@@ -4,10 +4,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import android.content.Context
 import androidx.room.Database
+import androidx.room.TypeConverters
 import com.example.dotahelperproject.attribute.model.room.AttributeDao
 import com.example.domain.entities.Attribute
 import com.example.domain.entities.Farm
 import com.example.domain.entities.Hero
+import com.example.domain.entities.HeroRole
 import com.example.domain.entities.Item
 import com.example.domain.entities.ItemCategory
 import com.example.domain.entities.Neutral
@@ -17,6 +19,7 @@ import com.example.domain.entities.Rune
 import com.example.domain.entities.Skill
 import com.example.domain.entities.User
 import com.example.domain.entities.Ward
+import com.example.dotahelperproject.converters.Converters
 import com.example.dotahelperproject.heroespage.model.room.HeroDao
 import com.example.dotahelperproject.itemspage.model.room.ItemDao
 import com.example.dotahelperproject.neutralspage.model.room.NeutralDao
@@ -26,9 +29,11 @@ import com.example.dotahelperproject.runespage.model.room.RuneDao
 import com.example.dotahelperproject.skillspage.model.room.SkillDao
 import com.example.dotahelperproject.user.model.room.UserDao
 
-@Database (entities = [com.example.domain.entities.Hero::class, com.example.domain.entities.Attribute::class, com.example.domain.entities.Farm::class, com.example.domain.entities.Item::class, com.example.domain.entities.ItemCategory::class,
-com.example.domain.entities.Neutral::class, com.example.domain.entities.Role::class, com.example.domain.entities.RoleManual::class, com.example.domain.entities.Rune::class, com.example.domain.entities.Skill::class, com.example.domain.entities.Ward::class, com.example.domain.entities.User::class],
+@Database (entities = [Hero::class, Attribute::class, Farm::class, Item::class, ItemCategory::class,
+Neutral::class, Role::class, RoleManual::class, Rune::class, Skill::class, Ward::class, User::class,
+                      HeroRole::class],
     version = 2)
+@TypeConverters(Converters::class)
 abstract class MainDb : RoomDatabase() {
     abstract fun getDao(): Dao
     abstract fun heroDao(): HeroDao

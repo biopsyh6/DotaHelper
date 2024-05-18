@@ -11,9 +11,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Application" />
             <option value="$PROJECT_DIR$/Domain" />
-            <option value="$PROJECT_DIR$/SerializerLib" />
+            <option value="$PROJECT_DIR$/ServicesApi" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/di" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

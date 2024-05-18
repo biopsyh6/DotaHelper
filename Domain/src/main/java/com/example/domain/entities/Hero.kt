@@ -9,28 +9,29 @@ import androidx.room.PrimaryKey
     ForeignKey(entity = Attribute::class, parentColumns = ["attributeId"],
         childColumns = ["attributeId"],
         onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE),
-    ForeignKey(entity = Role::class, parentColumns = ["roleId"], childColumns = ["roleId"],
-        onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)
+//    ForeignKey(entity = Role::class, parentColumns = ["roleId"], childColumns = ["roleId"],
+//        onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)
     ])
 data class Hero (
     @PrimaryKey(autoGenerate = true)
-    var heroId: Int? = null,
-    var attributeId: Int? = null,
-    var roleId: Int? = null,
+    var heroId: Int = 0,
+    var attributeId: Int = 0,
+//    var roleId: Int? = null,
+    var roleIds: List<String> = listOf(),
     @ColumnInfo(name = "name")
     var name: String = "",
     @ColumnInfo(name = "health")
-    var health: Double = 0.0,
+    var health: Int = 0,
     @ColumnInfo(name = "mana")
-    var mana: Double = 0.0,
+    var mana: Int = 0,
     @ColumnInfo(name = "strength")
-    var strength: Double = 0.0,
+    var strength: Int = 0,
     @ColumnInfo(name = "agility")
-    var agility: Double = 0.0,
+    var agility: Int = 0,
     @ColumnInfo(name = "intelligence")
-    var intelligence: Double = 0.0,
+    var intelligence: Int = 0,
     @ColumnInfo(name = "damage")
-    var damage: Int = 0,
+    var damage: String = "",
     @ColumnInfo(name = "armor")
     var armor: Double = 0.0,
     @ColumnInfo(name = "speed")
@@ -38,8 +39,12 @@ data class Hero (
     @ColumnInfo(name = "attackRange")
     var attackRange: Int = 0,
     @ColumnInfo(name = "attackSpeed")
-    var attackSpeed: Int = 0,
+    var attackSpeed: Double = 0.0,
     @ColumnInfo(name = "image")
     var image: Int = 0,
+    @ColumnInfo(name = "imageUrl")
+    var imageUrl: String = "",
+    @ColumnInfo(name = "description")
+    var description: String = "",
     var firebaseId: String = ""
 )

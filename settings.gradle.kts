@@ -17,5 +17,4 @@ rootProject.name = "DotaHelperProject"
 include(":app")
 include(":Domain")
 include(":Application")
-include(":di")
-include(":SerializerLib")
+include(":ServicesApi")

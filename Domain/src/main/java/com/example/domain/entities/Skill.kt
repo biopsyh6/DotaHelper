@@ -21,5 +21,9 @@ data class Skill(
     @ColumnInfo(name = "image")
     var image: Int,
     @ColumnInfo(name = "type")
-    var type: String
+    var type: String,
+    @ColumnInfo(name = "isScepterAbility")
+    var isScepterAbility: Boolean,
+    @ColumnInfo(name = "isShardAbility")
+    var isShardAbility: Boolean
 )

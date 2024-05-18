@@ -21,6 +21,9 @@
       <entry key="dota_lib">
         <State />
       </entry>
+      <entry key="services">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

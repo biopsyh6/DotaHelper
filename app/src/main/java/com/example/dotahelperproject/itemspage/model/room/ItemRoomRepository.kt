@@ -4,6 +4,7 @@ import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.dotahelperproject.MainActivity
 import com.example.domain.abstractions.item.ItemRepository
+import com.example.domain.entities.Item
 
 class ItemRoomRepository : ItemRepository {
     private val itemDao: ItemDao = MainActivity.database.itemDao()
@@ -29,6 +30,9 @@ class ItemRoomRepository : ItemRepository {
     override fun getItemById(id: Int) = itemDao.getItemById(id)
 
     override fun getItemByCategoryId(categoryId: Int) = itemDao.getItemsByCategoryId(categoryId)
+    override suspend fun create(item: Item, onSuccess: () -> Unit) {
+        TODO("Not yet implemented")
+    }
 
     private class InsertAsyncTask internal constructor(private val dao: ItemDao):
         AsyncTask<com.example.domain.entities.Item, Void, Void>() {

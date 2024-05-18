@@ -44,7 +44,11 @@ android {
 
 dependencies {
 
+    implementation ("com.google.code.gson:gson:2.8.5")
+
     implementation ("com.google.dagger:hilt-android:2.51.1")
+    implementation(project(":ServicesApi"))
+    implementation(project(":ServicesApi"))
     kapt ("com.google.dagger:hilt-compiler:2.51.1")
 
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
@@ -69,4 +73,12 @@ dependencies {
 
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     implementation("com.google.android.material:material:1.11.0")
+
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.5.0")
+    implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+    implementation(project(":Application"))
+    implementation(project(":Domain"))
 }

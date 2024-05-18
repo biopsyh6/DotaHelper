@@ -25,6 +25,6 @@ interface HeroDao {
     @Query("SELECT * FROM heroes WHERE attributeId =:attributeId")
     fun getHeroesByAttributeId(attributeId: Int) : LiveData<List<com.example.domain.entities.Hero>>
 
-    @Query("SELECT * FROM heroes WHERE roleId =:roleId")
-    fun getHeroesByRoleId(roleId: Int) : LiveData<List<com.example.domain.entities.Hero>>
+//    @Query("SELECT * FROM heroes WHERE roleId =:roleId")
+//    fun getHeroesByRoleId(roleId: Int) : LiveData<List<com.example.domain.entities.Hero>>
 }

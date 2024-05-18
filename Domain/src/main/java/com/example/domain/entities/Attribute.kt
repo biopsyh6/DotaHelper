@@ -8,7 +8,7 @@ import java.sql.Blob
 @Entity(tableName = "attributes")
 data class Attribute(
     @PrimaryKey(autoGenerate = true)
-    var attributeId: Int? = null,
+    var attributeId: Int = 0,
     @ColumnInfo(name = "name")
     var name: String = "",
     @ColumnInfo(name = "image")
