@@ -3,22 +3,11 @@ package com.example.dotahelperproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import com.example.dotahelperproject.databinding.ActivityMainBinding
-import com.example.domain.entities.Rune
 import com.example.dotahelperproject.login.view.LoginActivity
 import com.example.dotahelperproject.mainpage.view.MainpageActivity
-import com.example.application.RuneUseCases.firebase.AppFirebaseRuneRepository
-import com.example.servicesapi.HeroDataFetcher
-import com.example.servicesapi.HeroService
 import com.google.firebase.auth.FirebaseAuth
-import com.example.servicesapi.MyApiService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -37,15 +26,26 @@ class MainActivity : AppCompatActivity() {
         val db = MainDb.getDb(this)
 //////////////////////////////////////////////////////////
 
-        var heroService = HeroService()
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://www.dota2.com/")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build()
-        val apiService = retrofit.create(MyApiService::class.java)
 
-        val fetcher = HeroDataFetcher(heroService, apiService)
-        fetcher.fetchHeroData(102)
+
+//        val attributeRepository = AppFirebaseAttributeRepository()
+//        val roleRepository = AppFirebaseRoleRepository()
+//        val heroRepository = AppFirebaseHeroRepository()
+//        var heroService = HeroService(attributeRepository, roleRepository, heroRepository)
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://www.dota2.com/")
+//            .addConverterFactory(ScalarsConverterFactory.create())
+//            .build()
+//        val apiService = retrofit.create(MyApiService::class.java)
+//
+//        val fetcher = HeroDataFetcher(heroService, apiService)
+//        DbFirebaseInitializer.initializeAttributesAndRoles()
+//        for(id in 1..138){
+//            fetcher.fetchHeroData(id)
+//        }
+
+
+
 
 //        val service = retrofit.create(MyApiService::class.java)
 //        val call = service.fetchHeroData("english", 102)

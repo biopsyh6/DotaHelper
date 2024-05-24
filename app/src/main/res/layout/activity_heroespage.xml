@@ -5,18 +5,29 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#201E28"
     tools:context=".heroespage.view.HeroespageActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/heroes_pager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/heroes_tab_layout"
         app:tabMode="scrollable"
-        app:tabIndicatorColor="@color/design_default_color_primary"
+        app:tabIndicatorColor="@color/material_dynamic_neutral0"
         app:tabIndicatorHeight="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/heroes_pager"
@@ -26,5 +37,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/heroes_tab_layout" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,11 @@
-package com.example.dotahelperproject
+package com.example.dotahelperproject.adapters
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.dotahelperproject.R
 
 const val ARG_OBJECT = "object"
 

@@ -2,8 +2,9 @@ package com.example.dotahelperproject.skillspage.model.room
 
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
-import com.example.dotahelperproject.MainActivity
 import com.example.domain.abstractions.skill.SkillRepository
+import com.example.domain.entities.Skill
+import com.example.dotahelperproject.MainActivity
 
 class SkillRoomRepository: SkillRepository {
     private val skillDao: SkillDao = MainActivity.database.skillDao()
@@ -41,6 +42,11 @@ class SkillRoomRepository: SkillRepository {
     }
 
     override fun getSkillById(id: Int) = skillDao.getSkillById(id)
+    override fun getSkillsByHeroId(heroId: String): LiveData<List<Skill>> {
+        TODO("Not yet implemented")
+    }
 
-    override fun getSkillsByHeroId(heroId: Int) = skillDao.getSkillsByHeroId(heroId)
+    override suspend fun create(skill: Skill, onSuccess: () -> Unit) {
+        TODO("Not yet implemented")
+    }
 }

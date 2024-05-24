@@ -4,6 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("kotlin-kapt")
     id ("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -18,6 +19,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -48,7 +50,6 @@ dependencies {
 
     implementation ("com.google.dagger:hilt-android:2.51.1")
     implementation(project(":ServicesApi"))
-    implementation(project(":ServicesApi"))
     kapt ("com.google.dagger:hilt-compiler:2.51.1")
 
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
@@ -78,6 +79,8 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.5.0")
     implementation ("com.squareup.retrofit2:converter-scalars:2.9.0")
+
+    implementation("com.squareup.picasso:picasso:2.8")
 
     implementation(project(":Application"))
     implementation(project(":Domain"))

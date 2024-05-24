@@ -1,9 +1,11 @@
 package com.example.domain.entities
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 @Entity (tableName = "heroes", foreignKeys = [
     ForeignKey(entity = Attribute::class, parentColumns = ["attributeId"],
@@ -12,10 +14,11 @@ import androidx.room.PrimaryKey
 //    ForeignKey(entity = Role::class, parentColumns = ["roleId"], childColumns = ["roleId"],
 //        onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)
     ])
-data class Hero (
+@Parcelize
+data class Hero(
     @PrimaryKey(autoGenerate = true)
     var heroId: Int = 0,
-    var attributeId: Int = 0,
+    var attributeId: String = "",
 //    var roleId: Int? = null,
     var roleIds: List<String> = listOf(),
     @ColumnInfo(name = "name")
@@ -47,4 +50,4 @@ data class Hero (
     @ColumnInfo(name = "description")
     var description: String = "",
     var firebaseId: String = ""
-)
+) : Parcelable

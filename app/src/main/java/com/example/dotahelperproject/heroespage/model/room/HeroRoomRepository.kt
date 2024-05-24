@@ -2,9 +2,9 @@ package com.example.dotahelperproject.heroespage.model.room
 
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
-import com.example.dotahelperproject.MainActivity
 import com.example.domain.abstractions.hero.HeroRepository
 import com.example.domain.entities.Hero
+import com.example.dotahelperproject.MainActivity
 
 class HeroRoomRepository : HeroRepository {
     private val heroDao: HeroDao = MainActivity.database.heroDao()
@@ -28,8 +28,22 @@ class HeroRoomRepository : HeroRepository {
     }
 
     override fun getHeroById(id: Int) = heroDao.getHeroById(id)
-    override fun getHeroesByAttributeId(attributeId: Int) = heroDao.getHeroesByAttributeId(attributeId)
-//    override fun getHeroesByRoleId(roleId: Int) = heroDao.getHeroesByRoleId(roleId)
+    override fun getHeroesByAttributeFirebaseId(attributeId: LiveData<String?>): LiveData<List<Hero>> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getHeroByName(name: String): LiveData<Hero?> {
+        TODO("Not yet implemented")
+    }
+
+
+//    override fun getHeroesByAttributeFirebaseId(attributeId: LiveData<String?>): LiveData<List<Hero>> {
+//        TODO("Not yet implemented")
+//    }
+
+//    override fun getHeroesByAttributeId(attributeId: Int) = heroDao.getHeroesByAttributeId(attributeId)
+
+    //    override fun getHeroesByRoleId(roleId: Int) = heroDao.getHeroesByRoleId(roleId)
     override suspend fun create(hero: Hero, onSuccess: () -> Unit) {
         TODO("Not yet implemented")
     }

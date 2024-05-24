@@ -13,5 +13,7 @@ data class Role(
     var name: String = "",
     @ColumnInfo(name = "image")
     var image: Int = 0,
+    @ColumnInfo(name = "imageUrl")
+    var imageUrl: String = "",
     var firebaseId: String = ""
 )

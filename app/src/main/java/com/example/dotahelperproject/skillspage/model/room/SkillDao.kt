@@ -16,7 +16,7 @@ interface SkillDao {
     @Delete
     fun clearSkills(vararg skill: com.example.domain.entities.Skill)
 
-    @Query("SELECT * FROM skills ORDER BY name ASC")
+    @Query("SELECT * FROM skills ORDER BY skillName ASC")
     fun getAllSkills(): LiveData<List<com.example.domain.entities.Skill>>
 
     @Query("SELECT * FROM skills WHERE skillId =:id")
