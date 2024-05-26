@@ -9,5 +9,6 @@ interface SkillRepository {
     fun clearAllSkills()
     fun getSkillById(id: Int): LiveData<Skill>
     fun getSkillsByHeroId(heroId: String) : LiveData<List<Skill>>
+    fun getSkillsByHeroName(heroName: String) : LiveData<List<Skill>>
     suspend fun create(skill: Skill, onSuccess: () -> Unit)
 }

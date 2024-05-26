@@ -9,7 +9,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.example.domain.entities.Hero
-import com.example.domain.entities.Skill
 import com.example.dotahelperproject.R
 import com.example.dotahelperproject.adapters.NumberAdapter
 import com.example.dotahelperproject.databinding.ActivityHeroespageBinding
@@ -64,14 +63,14 @@ class HeroespageActivity : AppCompatActivity(), IHeroespageView {
                 .commit()
         }
     }
-    fun openHeroDetailFragment(hero: Hero, skills: List<Skill>) {
+    fun openHeroDetailFragment(hero: Hero) {
 //        Log.d("HeroClick", "Opening hero details")
 //        val fragment = HeroDetailFragment.newInstance(hero)
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.fragment_container, fragment)
 //            .addToBackStack(null)
 //            .commit()
-        val intent = HeroDetailActivity.createIntent(this, hero, skills)
+        val intent = HeroDetailActivity.createIntent(this, hero)
         startActivity(intent)
     }
 }

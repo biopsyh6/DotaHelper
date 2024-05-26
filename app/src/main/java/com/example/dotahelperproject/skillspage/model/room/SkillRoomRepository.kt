@@ -46,6 +46,10 @@ class SkillRoomRepository: SkillRepository {
         TODO("Not yet implemented")
     }
 
+    override fun getSkillsByHeroName(heroName: String): LiveData<List<Skill>> {
+        TODO("Not yet implemented")
+    }
+
     override suspend fun create(skill: Skill, onSuccess: () -> Unit) {
         TODO("Not yet implemented")
     }

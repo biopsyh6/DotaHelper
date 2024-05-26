@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import com.example.domain.abstractions.hero.HeroRepository
 import com.example.domain.entities.Hero
 import com.example.dotahelperproject.MainActivity
+import com.google.firebase.database.DatabaseReference
 
 class HeroRoomRepository : HeroRepository {
     private val heroDao: HeroDao = MainActivity.database.heroDao()
@@ -35,6 +36,15 @@ class HeroRoomRepository : HeroRepository {
     override fun getHeroByName(name: String): LiveData<Hero?> {
         TODO("Not yet implemented")
     }
+
+    override fun getHeroReferenceByName(name: String): DatabaseReference {
+        TODO("Not yet implemented")
+    }
+
+
+//    override fun getHeroByName(name: String): LiveData<Hero?> {
+//        TODO("Not yet implemented")
+//    }
 
 
 //    override fun getHeroesByAttributeFirebaseId(attributeId: LiveData<String?>): LiveData<List<Hero>> {
