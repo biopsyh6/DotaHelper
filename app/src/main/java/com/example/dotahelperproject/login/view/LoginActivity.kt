@@ -12,7 +12,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.dotahelperproject.MainActivity
 import com.example.dotahelperproject.R
 import com.example.dotahelperproject.databinding.ActivityLogin3Binding
 import com.example.dotahelperproject.login.model.LoginModel
@@ -51,7 +50,7 @@ class LoginActivity : AppCompatActivity(), ILoginView {
     }
 
     private fun initPresenter(){
-        iLoginPresenter = LoginPresenter(iLoginView = this, iLoginModel = LoginModel())
+        iLoginPresenter = LoginPresenter(iLoginView = this, iLoginModel = LoginModel(), context = this)
     }
     private fun setListenerAuthButton(){
         binding.authorizationButton.setOnClickListener {

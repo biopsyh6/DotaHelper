@@ -15,6 +15,9 @@
         android:theme="@style/Theme.DotaHelperProject"
         tools:targetApi="31">
         <activity
+            android:name=".heroespage.view.SkillDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".heroespage.view.HeroDetailActivity"
             android:exported="false" />
         <activity

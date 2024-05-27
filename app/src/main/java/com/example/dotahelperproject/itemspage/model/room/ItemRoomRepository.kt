@@ -2,9 +2,9 @@ package com.example.dotahelperproject.itemspage.model.room
 
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
-import com.example.dotahelperproject.MainActivity
 import com.example.domain.abstractions.item.ItemRepository
 import com.example.domain.entities.Item
+import com.example.dotahelperproject.MainActivity
 
 class ItemRoomRepository : ItemRepository {
     private val itemDao: ItemDao = MainActivity.database.itemDao()
@@ -28,8 +28,11 @@ class ItemRoomRepository : ItemRepository {
     }
 
     override fun getItemById(id: Int) = itemDao.getItemById(id)
+    override fun getItemByCategoryId(categoryId: Int): LiveData<List<Item>> {
+        TODO("Not yet implemented")
+    }
 
-    override fun getItemByCategoryId(categoryId: Int) = itemDao.getItemsByCategoryId(categoryId)
+    //    override fun getItemByCategoryId(categoryId: Int) = itemDao.getItemsByCategoryId(categoryId)
     override suspend fun create(item: Item, onSuccess: () -> Unit) {
         TODO("Not yet implemented")
     }

@@ -6,7 +6,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.domain.entities.Item
 
 @Dao
 interface ItemDao {
@@ -22,6 +21,6 @@ interface ItemDao {
     @Query("SELECT * FROM items WHERE itemId =:id")
     fun getItemById(id: Int): LiveData<com.example.domain.entities.Item>
 
-    @Query("SELECT * FROM items WHERE categoryId =:categoryId")
-    fun getItemsByCategoryId(categoryId: Int): LiveData<List<com.example.domain.entities.Item>>
+//    @Query("SELECT * FROM items WHERE categoryId =:categoryId")
+//    fun getItemsByCategoryId(categoryId: Int): LiveData<List<com.example.domain.entities.Item>>
 }

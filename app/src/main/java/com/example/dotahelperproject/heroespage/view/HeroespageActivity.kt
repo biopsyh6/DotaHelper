@@ -64,12 +64,6 @@ class HeroespageActivity : AppCompatActivity(), IHeroespageView {
         }
     }
     fun openHeroDetailFragment(hero: Hero) {
-//        Log.d("HeroClick", "Opening hero details")
-//        val fragment = HeroDetailFragment.newInstance(hero)
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.fragment_container, fragment)
-//            .addToBackStack(null)
-//            .commit()
         val intent = HeroDetailActivity.createIntent(this, hero)
         startActivity(intent)
     }
