@@ -9,7 +9,9 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.dotahelperproject.R
 import com.example.dotahelperproject.databinding.ActivityMainpageBinding
 import com.example.dotahelperproject.heroespage.view.HeroespageActivity
+import com.example.dotahelperproject.itemspage.view.ItemspageActivity
 import com.example.dotahelperproject.mainpage.presenter.IMainpagePresenter
+import com.example.dotahelperproject.profilepage.view.ProfilepageActivity
 import com.example.dotahelperproject.runespage.model.room.RuneRoomRepository
 
 class MainpageActivity : AppCompatActivity(), IMainpageView {
@@ -29,16 +31,35 @@ class MainpageActivity : AppCompatActivity(), IMainpageView {
             insets
         }
         setListenerHeroesImageButton()
+        setListenerItemsImageButton()
+        setListenerProfileImageButton()
     }
 
     override fun onStartHeroesPageActivity() {
         val intent = Intent(this@MainpageActivity, HeroespageActivity::class.java)
         startActivity(intent)
     }
+
+    private fun setListenerItemsImageButton() {
+        binding.itemsImageButton.setOnClickListener {
+            val intent = Intent(this@MainpageActivity, ItemspageActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun setListenerProfileImageButton(){
+        binding.profileImageButton.setOnClickListener {
+            val intent = Intent(this@MainpageActivity, ProfilepageActivity::class.java)
+            startActivity(intent)
+        }
+    }
     private fun setListenerHeroesImageButton(){
         binding.heroesImageButton.setOnClickListener {
             val intent = Intent(this@MainpageActivity, HeroespageActivity::class.java)
             startActivity(intent)
+
+
+
 
 
 //            val id = 379

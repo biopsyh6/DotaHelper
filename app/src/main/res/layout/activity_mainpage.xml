@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#666372"
     tools:context=".mainpage.view.MainpageActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/inter_bold"
         android:text="Dota Helper"
+        android:textColor="#E6E5E5"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -45,5 +47,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.143"
         app:srcCompat="@drawable/second" />
+
+    <ImageButton
+        android:id="@+id/profileImageButton"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="220dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.771"
+        app:srcCompat="@drawable/profile_button2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

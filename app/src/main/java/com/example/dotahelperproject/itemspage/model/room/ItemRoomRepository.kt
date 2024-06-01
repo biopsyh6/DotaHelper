@@ -32,6 +32,14 @@ class ItemRoomRepository : ItemRepository {
         TODO("Not yet implemented")
     }
 
+    override fun getItems(): LiveData<List<Item>> {
+        TODO("Not yet implemented")
+    }
+
+    override fun getItemsByTypeName(typeName: String): LiveData<List<Item>> {
+        TODO("Not yet implemented")
+    }
+
     //    override fun getItemByCategoryId(categoryId: Int) = itemDao.getItemsByCategoryId(categoryId)
     override suspend fun create(item: Item, onSuccess: () -> Unit) {
         TODO("Not yet implemented")

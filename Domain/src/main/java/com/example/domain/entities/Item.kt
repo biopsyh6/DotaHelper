@@ -1,8 +1,10 @@
 package com.example.domain.entities
 
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.parcelize.Parcelize
 
 //@Entity(tableName = "items", foreignKeys = [
 //    ForeignKey(entity = ItemCategory::class, parentColumns = ["categoryId"],
@@ -10,6 +12,7 @@ import androidx.room.PrimaryKey
 //        onDelete = ForeignKey.CASCADE, onUpdate = ForeignKey.CASCADE)
 //])
 @Entity(tableName = "items")
+@Parcelize
 data class Item (
     @PrimaryKey(autoGenerate = true)
     var itemId: Int = 0,
@@ -30,5 +33,16 @@ data class Item (
     var image: Int = 0,
     @ColumnInfo(name = "imageUrl")
     var imageUrl: String = "",
-    var firebaseId: String = ""
-)
+    @ColumnInfo(name = "attributes")
+    var attributes: List<Attributes> = listOf(),
+    @ColumnInfo(name = "type")
+    var type: String = "",
+    var firebaseId: String = "",
+
+) : Parcelable
+
+@Parcelize
+data class Attributes(
+    val value: String = "",
+    val label: String = ""
+) : Parcelable

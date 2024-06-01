@@ -1,9 +1,9 @@
 package com.example.dotahelperproject
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.example.dotahelperproject.databinding.ActivityMainBinding
 import com.example.dotahelperproject.login.view.LoginActivity
 import com.example.dotahelperproject.mainpage.view.MainpageActivity
@@ -24,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         database = MainDb.getDb(this)
 
         val db = MainDb.getDb(this)
+
+        ///////////////////////////////////////DELETING
+//        var root: DatabaseReference = FirebaseDatabase.getInstance("https://dotahelperproject-default-rtdb.europe-west1.firebasedatabase.app/").getReference()
+//        root.setValue(null)
+
 //////////////////////////////////////////////////////////
 
 
@@ -69,8 +74,6 @@ class MainActivity : AppCompatActivity() {
 
 
 /////////////////////////////////////////////////////////////////
-
-
 
 
 
