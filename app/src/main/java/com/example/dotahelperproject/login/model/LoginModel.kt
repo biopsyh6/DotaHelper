@@ -5,6 +5,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginModel: ILoginModel {
+    private val mAuth = FirebaseAuth.getInstance()
     override fun login(
         login: String,
         password: String,
@@ -14,5 +15,9 @@ class LoginModel: ILoginModel {
             .addOnCompleteListener { task ->
                 onComplete(task)
             }
+    }
+
+    override fun logout() {
+        mAuth.signOut()
     }
 }

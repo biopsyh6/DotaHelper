@@ -3,6 +3,7 @@ package com.example.dotahelperproject.login.presenter
 import android.content.Context
 import android.util.Log
 import com.example.application.AttributeUseCases.firebase.AppFirebaseAttributeRepository
+import com.example.application.HeroPickerUseCases.firebase.AppFirebaseHeroPickerRepository
 import com.example.application.HeroUseCases.firebase.AppFirebaseHeroRepository
 import com.example.application.ItemUseCases.firebase.AppFirebaseItemRepository
 import com.example.application.RoleUseCases.firebase.AppFirebaseRoleRepository
@@ -14,6 +15,7 @@ import com.example.dotahelperproject.login.model.UserInfoModel
 import com.example.dotahelperproject.login.presenter.controller.LoginController
 import com.example.dotahelperproject.login.view.ILoginView
 import com.example.servicesapi.DataFetchers.HeroDataFetcher
+import com.example.servicesapi.DataFetchers.HeroPickerDataFetcher
 import com.example.servicesapi.DataFetchers.ItemDataFetcher
 import com.example.servicesapi.DataFetchers.SkillDataFetcher
 import com.example.servicesapi.HeroService
@@ -23,6 +25,7 @@ import com.example.servicesapi.SkillService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -72,11 +75,11 @@ class LoginPresenter(var context: Context, var iLoginView: ILoginView,
                         HeroService(attributeRepository, roleRepository, heroRepository)
                     var skillService = SkillService(skillRepository, heroRepository)
                     var itemService = ItemService(itemRepository)
-                    val retrofit = Retrofit.Builder()
+                    var retrofit = Retrofit.Builder()
                         .baseUrl("https://www.dota2.com/")
                         .addConverterFactory(ScalarsConverterFactory.create())
                         .build()
-                    val apiService = retrofit.create(MyApiService::class.java)
+                    var apiService = retrofit.create(MyApiService::class.java)
 
                     val heroFetcher = HeroDataFetcher(heroService, apiService)
                     val skillFetcher = SkillDataFetcher(skillService, apiService)
@@ -98,6 +101,15 @@ class LoginPresenter(var context: Context, var iLoginView: ILoginView,
                         val itemDataFetcher = ItemDataFetcher(itemService)
                         itemDataFetcher.fetchItemDataFromJson(json)
                     }
+
+                    val heroPickerRepository = AppFirebaseHeroPickerRepository()
+                    retrofit = Retrofit.Builder()
+                        .baseUrl("https://dota-counter-picker.onrender.com/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build()
+                    apiService = retrofit.create(MyApiService::class.java)
+                    val heroPickerFetcher = HeroPickerDataFetcher(apiService, heroPickerRepository)
+                    heroPickerFetcher.fetchPickerHeroData()
 
                     //INITIALIZE
                     iLoginView.onStartMainPageActivity(task.result?.user!!)

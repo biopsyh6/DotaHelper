@@ -6,11 +6,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.dotahelperproject.LoginActivity
 import com.example.dotahelperproject.R
 import com.example.dotahelperproject.databinding.ActivityMainpageBinding
 import com.example.dotahelperproject.heroespage.view.HeroespageActivity
 import com.example.dotahelperproject.itemspage.view.ItemspageActivity
+import com.example.dotahelperproject.login.model.ILoginModel
+import com.example.dotahelperproject.login.model.LoginModel
 import com.example.dotahelperproject.mainpage.presenter.IMainpagePresenter
+import com.example.dotahelperproject.pickerpage.PickerpageActivity
 import com.example.dotahelperproject.profilepage.view.ProfilepageActivity
 import com.example.dotahelperproject.runespage.model.room.RuneRoomRepository
 
@@ -33,6 +37,8 @@ class MainpageActivity : AppCompatActivity(), IMainpageView {
         setListenerHeroesImageButton()
         setListenerItemsImageButton()
         setListenerProfileImageButton()
+        setListenerPickerImageButton()
+        setListenerLogoutImageButton()
     }
 
     override fun onStartHeroesPageActivity() {
@@ -59,30 +65,24 @@ class MainpageActivity : AppCompatActivity(), IMainpageView {
             startActivity(intent)
 
 
-
-
-
-//            val id = 379
-//            val rune: LiveData<Rune> = runeRepository.getRuneById(id)
-//            val runes: LiveData<List<Rune>> = runeRepository.getAllRunes()
-
-
-
-//            rune.observe(this, Observer { rune ->
-//                // Обработка полученной руны
-//
-//                Toast.makeText(this, rune.name, Toast.LENGTH_LONG).show()
-//                Thread.sleep(2000)
-//
-//            })
-//            val allRunes: LiveData<List<Rune>> = runeRepository.getAllRunes()
-//            allRunes.observe(this, Observer { runes ->
-//                runes.forEach { rune ->
-//                    Toast.makeText(this, rune.name, Toast.LENGTH_SHORT).show()
-//                    Thread.sleep(2000)
-//                }
-//            })
-
         }
     }
+
+    private fun setListenerPickerImageButton(){
+        binding.pickerImageButton.setOnClickListener {
+            val intent = Intent(this@MainpageActivity, PickerpageActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun setListenerLogoutImageButton(){
+        binding.logoutImageButton.setOnClickListener {
+            val loginModel: ILoginModel = LoginModel()
+            loginModel.logout()
+
+            val intent = Intent(this@MainpageActivity, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }

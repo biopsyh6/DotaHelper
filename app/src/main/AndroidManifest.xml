@@ -15,6 +15,9 @@
         android:theme="@style/Theme.DotaHelperProject"
         tools:targetApi="31">
         <activity
+            android:name=".pickerpage.PickerpageActivity"
+            android:exported="false" />
+        <activity
             android:name=".profilepage.view.ProfilepageActivity"
             android:exported="false" />
         <activity

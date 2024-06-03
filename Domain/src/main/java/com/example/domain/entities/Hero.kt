@@ -49,5 +49,7 @@ data class Hero(
     var imageUrl: String = "",
     @ColumnInfo(name = "description")
     var description: String = "",
+    @ColumnInfo(name = "nameForUrl")
+    var nameForUrl: String = "",
     var firebaseId: String = ""
 ) : Parcelable
