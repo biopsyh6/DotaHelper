@@ -6,7 +6,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.dotahelperproject.LoginActivity
 import com.example.dotahelperproject.R
 import com.example.dotahelperproject.databinding.ActivityMainpageBinding
 import com.example.dotahelperproject.heroespage.view.HeroespageActivity
@@ -80,7 +79,7 @@ class MainpageActivity : AppCompatActivity(), IMainpageView {
             val loginModel: ILoginModel = LoginModel()
             loginModel.logout()
 
-            val intent = Intent(this@MainpageActivity, LoginActivity::class.java)
+            val intent = Intent(this@MainpageActivity, com.example.dotahelperproject.login.view.LoginActivity::class.java)
             startActivity(intent)
         }
     }

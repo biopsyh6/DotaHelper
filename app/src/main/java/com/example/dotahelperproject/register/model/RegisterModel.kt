@@ -1,11 +1,10 @@
 package com.example.dotahelperproject.register.model
 
 import com.example.domain.entities.User
-import com.example.dotahelperproject.user.model.firebase.AppFirebaseUserRepository
+import com.example.dotahelperproject.user.firebase.AppFirebaseUserRepository
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 
 class RegisterModel: IRegisterModel {
     val userRepository = AppFirebaseUserRepository()
